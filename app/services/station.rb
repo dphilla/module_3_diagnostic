@@ -5,12 +5,12 @@ class Station
               :distance,
               :access_times
 
-  def initialize(attrs)
-    @name
-    @address
-    @fuel_types
-    @distance
-    @access_times
+  def initialize(parsed)
+    @name         = parsed["station_name"]
+    @address      = parsed["street_address"]
+    @fuel_types   = parsed["fuel_type_code"]
+    @distance     = parsed["distance"]
+    @access_times = parsed["access_days_time"]
   end
 
   def self.filter(zipcode)
