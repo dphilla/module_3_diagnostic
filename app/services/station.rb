@@ -15,11 +15,15 @@ class Station
 
   def self.filter(zipcode)
    stations = NrelService.new(zipcode).get_url
-   #map each station hash to a new instance of station
 
    stations.map do |station|
      Station.new(station)
    end
 
   end
+
+  def round_distance                #<-- would break this out into decorator on a refactor
+    @distance = distance.round(2)
+  end
+
 end
