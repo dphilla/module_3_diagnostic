@@ -1,11 +1,11 @@
 <h2>Station's close to your searched zipcode</h2>
 
-<div>
 <% @stations.each do |station| %>
- <p>Name: <%= station.name %></p>
- <p>Address: <%= station.address %></p>
- <p>Fuel Types: <%= station.fuel_types %></p>
- <p><%= station.distance %> miles from given zip</p>
- <p>Access Times: <%= station.access_times %></p>
+<p>
+ Name: <%= station.name %>
+ Address: <%= station.address %>
+ Fuel Types: <%= station.fuel_types %>
+ <%= station.distance %> miles from given zip
+ Access Times: <%= station.access_times %>
+</p>
 <% end  %>
-</div>

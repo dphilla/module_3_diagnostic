@@ -1,9 +1,5 @@
 class NrelService
 
-
-    # working endpoint 'https://api.data.gov/nrel/alt-fuel-stations/v1/nearest.json?location=80203'
-
-
   def initialize(zipcode)
     @zipcode = zipcode
     @conn = Faraday.new("https://api.data.gov") do |faraday|
@@ -14,7 +10,7 @@ class NrelService
 
 
   def get_url
-   response = @conn.get("/nrel/alt-fuel-stations/v1/nearest.json?location=#{@zipcode}")
+    response = @conn.get("/nrel/alt-fuel-stations/v1/nearest.json?limit=10&radius=6.0&fuel_type=ELEC,LPG&location=#{@zipcode}")
    parsed = JSON.parse(response.body)
    parsed["fuel_stations"]
   end
